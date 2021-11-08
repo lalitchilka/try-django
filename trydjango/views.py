@@ -13,10 +13,13 @@ def home_view(request):
     article_title = articles_obj.title
     article_content = articles_obj.content
 
+    article_queryset = Article.objects.all()
+
     context = {
         "title": article_title,
         "id": random_id,
-        "content": article_content
+        "content": article_content,
+        "object_list": article_queryset
     }
 
     HTML_STRING = render_to_string("home-view.html", context=context)
